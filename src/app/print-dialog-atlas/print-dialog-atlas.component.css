@@ -1,0 +1,38 @@
+:host {
+  display: block;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.2);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: 500;
+  padding: .5rem 1rem;
+  color: var(--disabled-foreground);
+  background-color: var(--disabled-background);
+  border-radius: 5px 5px 0 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.section-header:has(input:checked) {
+  color: var(--active-foreground);
+  background-color: var(--active-background);
+}
+
+.header-checkbox {
+  color: var(--active-foreground);
+  accent-color: var(--active-background);
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1rem;
+}
+
+.intro, .content {
+  padding: 1rem;
+}
+
+.disabled {
+  color: var(--disabled-text);
+}

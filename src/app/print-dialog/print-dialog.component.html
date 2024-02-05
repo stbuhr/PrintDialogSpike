@@ -1,0 +1,21 @@
+<div class="dialog">
+  <header>Auswertung drucken</header>
+  <div class="intro">
+    <p>
+      Wähle bitte die Bestandteile aus, die in der Auswertung enthalten sein
+      sollen.
+    </p>
+    <button class="btn btn-secondary btn-small" (click)="selectAll()">
+      Alles auswählen
+    </button>
+  </div>
+  <div class="content">
+    <app-print-dialog-atlas></app-print-dialog-atlas>
+    <app-print-dialog-teamrole></app-print-dialog-teamrole>
+    <app-print-dialog-development></app-print-dialog-development>
+  </div>
+  <footer>
+    <button class="btn btn-secondary" (click)="close()">Abbrechen</button>
+    <button class="btn btn-primary" (click)="print()">Drucken</button>
+  </footer>
+</div>

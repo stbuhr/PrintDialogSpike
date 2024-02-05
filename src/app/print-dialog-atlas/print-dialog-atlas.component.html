@@ -1,0 +1,27 @@
+<header class="section-header">
+  <input
+    type="checkbox"
+    class="header-checkbox"
+    #isSelectedControl="ngModel"
+    [ngModel]="isSelected()"
+    (ngModelChange)="isSelected.set($event)"
+    matInput
+  />
+  <span>KompetenzAtlas</span>
+</header>
+<div class="intro" [class.disabled]="!isSelected()">
+  Wähle bitte aus, ob der KompetenzAtlas unter normalen Bedingungen, unter
+  schwierigen Bedingungen oder beide in die Auswertung aufgenommen werden
+  sollen.
+</div>
+<div class="content">
+  <mat-radio-group [disabled]="!isSelected()">
+    <mat-radio-button value="normal" color="primary">Normal</mat-radio-button>
+    <mat-radio-button value="difficult" color="primary"
+      >Schwierig</mat-radio-button
+    >
+    <mat-radio-button value="both" checked="true" color="primary"
+      >Beide</mat-radio-button
+    >
+  </mat-radio-group>
+</div>

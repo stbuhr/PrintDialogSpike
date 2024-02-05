@@ -1,0 +1,76 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --active-background: hsl(261, 100%, 20%);
+  --active-foreground: white;
+  --disabled-background: hsl(0, 0%, 80%);
+  --disabled-foreground: hsl(0, 0%, 20%);
+  --disabled-text: hsl(0, 0%, 50%);
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.btn {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--active-foreground);
+  background-color: var(--active-background);
+  padding: 20px 30px;
+  border: 2px solid var(--active-background);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  color: var(--active-foreground);
+  background-color: var(--active-background);
+}
+
+.btn-secondary {
+  color: var(--active-background);
+  background-color: var(--active-foreground);
+}
+
+button:hover {
+  background-color: var(--active-foreground);
+  color: var(--active-background);
+}
+
+.btn-secondary:hover {
+  background-color: var(--active-background);
+  color: var(--active-foreground);
+}
+
+.btn-small {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.cdk-overplay-pane {
+  max-width: 100%;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
