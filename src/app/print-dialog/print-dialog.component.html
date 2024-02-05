@@ -15,7 +15,18 @@
     <app-print-dialog-development></app-print-dialog-development>
   </div>
   <footer>
-    <button class="btn btn-secondary" (click)="close()">Abbrechen</button>
-    <button class="btn btn-primary" (click)="print()">Drucken</button>
+    <p class="error" *ngIf="!canBePrinted()">
+      Bitte wähle mindestens einen Bestandteil aus.
+    </p>
+    <div class="actions">
+      <button class="btn btn-secondary" (click)="close()">Abbrechen</button>
+      <button
+        class="btn btn-primary"
+        (click)="print()"
+        [disabled]="!canBePrinted()"
+      >
+        Drucken
+      </button>
+    </div>
   </footer>
 </div>

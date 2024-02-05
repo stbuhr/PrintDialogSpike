@@ -18,9 +18,20 @@ header {
 }
 
 footer {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 1rem;
+}
+
+@media (min-width: 40rem) {
+  footer {
+    grid-template-columns: 1fr auto;
+  }
+}
+
+.actions {
   display: flex;
   justify-content: flex-end;
-  padding: 1rem;
   gap: 1rem;
 }
 

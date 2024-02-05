@@ -1,20 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
-
 :root {
   --active-background: hsl(261, 100%, 20%);
   --active-foreground: white;
   --disabled-background: hsl(0, 0%, 80%);
   --disabled-foreground: hsl(0, 0%, 20%);
+  --enabled-text: hsl(0, 0%, 20%);
   --disabled-text: hsl(0, 0%, 50%);
 }
 
 html,
 body {
   height: 100%;
-}
-body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: var(--enabled-text);
 }
 
 main {
@@ -48,14 +45,19 @@ main {
   background-color: var(--active-foreground);
 }
 
-button:hover {
-  background-color: var(--active-foreground);
-  color: var(--active-background);
+.btn:hover:enabled {
+  scale: 1.1;
 }
 
-.btn-secondary:hover {
-  background-color: var(--active-background);
-  color: var(--active-foreground);
+.btn:focus {
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+button:disabled {
+  color: var(--disabled-text);
+  background-color: var(--disabled-background);
+  border-color: var(--disabled-background);
+  cursor: not-allowed;
 }
 
 .btn-small {
@@ -73,4 +75,10 @@ button:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
 }

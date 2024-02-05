@@ -1,9 +1,14 @@
 import { CommonModule } from '@angular/common';
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   Input,
+  OnInit,
+  Signal,
   ViewChild,
+  computed,
+  signal,
 } from '@angular/core';
 import { PrintDialogAtlasComponent } from '../print-dialog-atlas/print-dialog-atlas.component';
 import { PrintDialogTeamroleComponent } from '../print-dialog-teamrole/print-dialog-teamrole.component';
@@ -23,7 +28,7 @@ import { MatDialog } from '@angular/material/dialog';
     PrintDialogDevelopmentComponent,
   ],
 })
-export class PrintDialogComponent {
+export class PrintDialogComponent implements AfterViewInit {
   @ViewChild(PrintDialogAtlasComponent) atlas:
     | PrintDialogAtlasComponent
     | undefined;
@@ -33,8 +38,19 @@ export class PrintDialogComponent {
   @ViewChild(PrintDialogDevelopmentComponent) development:
     | PrintDialogDevelopmentComponent
     | undefined;
+  canBePrinted: Signal<boolean> = signal(false);
 
   constructor(public dialog: MatDialog) {}
+
+  ngAfterViewInit() {
+    this.canBePrinted = computed(
+      () =>
+        (this.atlas?.isSelected() ||
+          this.teamrole?.isSelected() ||
+          this.development?.isSelected()) ??
+        false
+    );
+  }
 
   selectAll() {
     this.atlas?.selectAll();
