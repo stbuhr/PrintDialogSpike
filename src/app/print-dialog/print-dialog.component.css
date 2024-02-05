@@ -1,6 +1,6 @@
 :host {
   display: block;
-  max-height: 100vh;
+  max-height: 100dvh;
 }
 
 .dialog {
