@@ -1,11 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  input,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { IPrintDialogSection } from '../IPrintDialogSection';
@@ -19,9 +13,11 @@ import { IPrintDialogSection } from '../IPrintDialogSection';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrintDialogAtlasComponent implements IPrintDialogSection {
-  isSelected = signal(false);
+  isSelected = signal(true);
+  condition = signal('both');
 
   selectAll() {
     this.isSelected.set(true);
+    this.condition.set('both');
   }
 }

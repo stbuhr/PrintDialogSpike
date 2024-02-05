@@ -1,8 +1,15 @@
 <header class="section-header">
-  <input type="checkbox" class="header-checkbox" checked="true" />
+  <input
+    type="checkbox"
+    class="header-checkbox"
+    #isSelectedControl="ngModel"
+    [ngModel]="isSelected()"
+    (ngModelChange)="isSelected.set($event)"
+    matInput
+  />
   <span>Kompetenzentwicklung</span>
 </header>
-<div class="intro">
+<div class="intro" [class.disabled]="!isSelected()">
   Wähle bitte dieses Modul aus, wenn du Empfehlungen für die weitere Entwicklung
   deiner Kompetenzen erhalten möchtest.
 </div>

@@ -1,20 +1,32 @@
 <header class="section-header">
-  <input type="checkbox" class="header-checkbox" checked="true" />
+  <input
+    type="checkbox"
+    class="header-checkbox"
+    #isSelectedControl="ngModel"
+    [ngModel]="isSelected()"
+    (ngModelChange)="isSelected.set($event)"
+    matInput
+  />
   <span>Teamrolle</span>
 </header>
-<div class="intro">
+<div class="intro" [class.disabled]="!isSelected()">
   Wähle bitte aus, ob die Rolle im Team unter normalen Bedingungen, unter
   schwierigen Bedingungen oder beide in die Auswertung aufgenommen werden
   sollen.
 </div>
 <div class="content">
-  <mat-radio-group>
-    <mat-radio-button value="normal" checked="true" color="primary"
-      >Normal</mat-radio-button
-    >
+  <mat-radio-group
+    [disabled]="!isSelected()"
+    [ngModel]="condition()"
+    (ngModelChange)="condition.set($event)"
+    matInput
+  >
+    <mat-radio-button value="normal" color="primary">Normal</mat-radio-button>
     <mat-radio-button value="difficult" color="primary"
       >Schwierig</mat-radio-button
     >
-    <mat-radio-button value="both" color="primary">Beide</mat-radio-button>
+    <mat-radio-button value="both" checked="true" color="primary"
+      >Beide</mat-radio-button
+    >
   </mat-radio-group>
 </div>

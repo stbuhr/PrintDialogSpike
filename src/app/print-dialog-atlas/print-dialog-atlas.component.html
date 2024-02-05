@@ -15,7 +15,12 @@
   sollen.
 </div>
 <div class="content">
-  <mat-radio-group [disabled]="!isSelected()">
+  <mat-radio-group
+    [disabled]="!isSelected()"
+    [ngModel]="condition()"
+    (ngModelChange)="condition.set($event)"
+    matInput
+  >
     <mat-radio-button value="normal" color="primary">Normal</mat-radio-button>
     <mat-radio-button value="difficult" color="primary"
       >Schwierig</mat-radio-button
