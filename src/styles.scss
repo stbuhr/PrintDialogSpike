@@ -22,6 +22,7 @@ main {
 }
 
 .btn {
+  position: relative;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: 18px;
   font-weight: 500;
@@ -45,12 +46,26 @@ main {
   background-color: var(--active-foreground);
 }
 
-.btn:hover:enabled {
-  scale: 1.1;
+@media (hover: hover) {
+  .btn:hover:enabled {
+    scale: 1.1;
+  }
 }
 
-.btn:focus {
-  text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+.btn:focus-visible::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  border: 2px solid var(--active-background);
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+.btn-primary:focus-visible::after {
+  border-color: var(--active-foreground);
 }
 
 button:disabled {
